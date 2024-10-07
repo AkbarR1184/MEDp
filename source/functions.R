@@ -31,21 +31,17 @@ download_data <- function(path = "", datasets, domain = "raw", time_res = "daily
   # List of all available datasets
   all_datasets <- c("e_obs", "gpm_imerg", "era5_land", "em_earth", "gsmap", "gpcc", "gpcp", "merra2_land", "mswep", "mswx")
   
-  # Update domain if necessary
   if (domain == "raw") {
     domain <- "land"
   } else if (domain == "med") {
     domain <- "mediterranean"
   }
   
-  # If datasets is "all", assign all available datasets
   if (datasets == "all") {
     datasets <- all_datasets
   }
   
-  # Loop through each dataset and download
   for (dataset in datasets) {
-    # Construct file name based on dataset
     file_name <- switch(dataset,
                         e_obs = paste0("e-obs_tp_mm_", domain, "_200101_201912_025_", time_res, ".nc"),
                         gpm_imerg = paste0("gpm-imerg-v6_tp_mm_", domain, "_200101_201912_025_", time_res, ".nc"),
@@ -60,11 +56,9 @@ download_data <- function(path = "", datasets, domain = "raw", time_res = "daily
                         stop("Unknown dataset specified.")
     )
     
-    # Construct full URL and file destination
     file_url <- paste0(zenodo_base, file_name, zenodo_end)
     file_destination <- file.path(path, file_name)
     
-    # Attempt to download the file
     try(download.file(file_url, file_destination, mode = "wb"), silent = TRUE)
   }
 }
