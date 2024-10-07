@@ -23,13 +23,13 @@ PREC_UPDATED_NAMES <- c(
   "e-obs" = "E-OBS v29e",
   "em-earth" = "EM-EARTH",
   "era5-land" = "ERA5-Land",
-  "gpcc-v2020" = "GPCC v2020",
-  "gpcp-v3-2" = "GPCP v3.2",
-  "gpm-imerg-v6" = "GPM-IMERG v6",
-  "gsmap-v8" = "GSMaP v8",
+  "gpcc" = "GPCC v2020",
+  "gpcp" = "GPCP v3.2",
+  "gpm-imerg" = "GPM-IMERG v6",
+  "gsmap" = "GSMaP v8",
   "merra2-land" = "MERRA2-Land",
-  "mswep-v2-8" = "MSWEP v2.8",
-  "mswx-past" = "MSWX-Past"
+  "mswep" = "MSWEP v2.8",
+  "mswx" = "MSWX-Past"
 )
 # Types
 PREC_SOURCE <- list(
