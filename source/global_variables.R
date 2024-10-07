@@ -19,17 +19,17 @@ PREC_GLOBAL_DATASETS <- c(
   "mswep",
   "mswx"
 )
-PREC_UPDATED_NAMES <- c(
-  "e-obs" = "E-OBS v29e",
+PREC_FIGURE_IDENTIFIERS <- c(
+  "e-obs" = "E-OBS",
   "em-earth" = "EM-EARTH",
   "era5-land" = "ERA5-Land",
-  "gpcc" = "GPCC v2020",
-  "gpcp" = "GPCP v3.2",
-  "gpm-imerg" = "GPM-IMERG v6",
-  "gsmap" = "GSMaP v8",
+  "gpcc" = "GPCC",
+  "gpcp" = "GPCP",
+  "gpm-imerg" = "GPM-IMERG",
+  "gsmap" = "GSMaP",
   "merra2-land" = "MERRA2-Land",
-  "mswep" = "MSWEP v2.8",
-  "mswx" = "MSWX-Past"
+  "mswep" = "MSWEP",
+  "mswx" = "MSWX"
 )
 # Types
 PREC_SOURCE <- list(
@@ -62,23 +62,21 @@ PREC_NAME_SHORT <- "tp"
 N_CORES <- detectCores()
 
 # color palettes for each source
-gauge_based_palette <- c(
-  "e_obs_v29e" = "#88CCEE",
-  "em_earth" = "#CC6677",
-  "gpcc_v2020" = "#117733"
+GAUGE_BASED_PALETTE <- c(
+  "E-OBS" = "#88CCEE",
+  "EM-EARTH" = "#CC6677",
+  "GPCC v2020" = "#117733"
 )
 
-reanalysis_based_palette <- c(
-  "era5_land" = "#DDCC77",
-  "merra2_land" = "#999933",
-  "mswep_v2_8" = "#882255",
-  "mswx_past" = "#888888"
+REANALYSIS_BASED_PALETTE <- c(
+  "ERA5-Land" = "#DDCC77",
+  "MERRA2-Land" = "#999933",
+  "MSWEP" = "#882255",
+  "MSWX" = "#888888"
 )
 
-satellite_based_palette <- c(
-  "gpcp_v3_2" = "#332288",
-  "gpm_imerg_v6" = "#AA4499",
-  "gsmap_v8" = "#44AA99"
+SATELLITE_BASED_PALETTE <- c(
+  "GPCP" = "#332288",
+  "GPM-IMERG" = "#AA4499",
+  "GSMaP" = "#44AA99"
 )
-
-

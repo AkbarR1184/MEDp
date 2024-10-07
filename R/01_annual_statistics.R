@@ -48,16 +48,17 @@ prec_data_2001_2019[, source := PREC_SOURCE[dataset]]
 # Add new columns 'Min', 'Max', and 'Mean' for each dataset
 prec_data_2001_2019[, dataset := PREC_UPDATED_NAMES[dataset]]
 prec_data_2001_2019[, `:=`(
-  min_intensity = min(avg_intensity),
-  max_intensity = max(avg_intensity),
-  avg_intensity = mean(avg_intensity),
-  min_wet_days = min(avg_wet_days),
-  max_wet_days = max(avg_wet_days),
-  avg_wet_days = mean(avg_wet_days),
-  min_pr = min(avg_pr_year),
-  max_pr = max(avg_pr_year),
-  avg_pr = mean(avg_pr_year)
+  min_intensity = round(min(avg_intensity), 2),
+  max_intensity = round(max(avg_intensity), 2),
+  avg_intensity = round(mean(avg_intensity), 2),
+  min_wet_days = round(min(avg_wet_days), 2),
+  max_wet_days = round(max(avg_wet_days), 2),
+  avg_wet_days = round(mean(avg_wet_days), 2),
+  min_pr = round(min(avg_pr_year), 0),
+  max_pr = round(max(avg_pr_year), 0),
+  avg_pr = round(mean(avg_pr_year), 0)
 ), by = dataset]
+
 
 # Save data 
 saveRDS(prec_data_2001_2019, paste0(PATH_PROCESSED_DATA, "annual_stats.rds"))

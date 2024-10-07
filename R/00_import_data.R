@@ -16,7 +16,7 @@ download_data(path = PATH_DATA, datasets = "all", domain = "med", time_res = "da
 #download_data(path = PATH_DATA, domain = "med", time_res = "daily", datasets = "e-obs")
 
 # List of downloaded dataset file names
-PREC_FNAME<- list.files("data/raw")
+PREC_FNAME<- list.files("data/nc/")
 n_datasets <- length(PREC_FNAME)
 
 for (dataset_count in 1:n_datasets) {
@@ -54,7 +54,7 @@ for (dataset_count in 1:n_datasets) {
   prec_tidy[, c("time", "KG") := NULL]
   
   # Save the processed precipitation data to an RDS file
-  saveRDS(prec_tidy, paste0(PATH_SAVE, PREC_GLOBAL_DATASETS[[dataset_count]], "_raw.rds"))
+  saveRDS(prec_tidy, paste0(PATH_TIDY_DATA, PREC_GLOBAL_DATASETS[[dataset_count]], "_raw.rds"))
   
   # Clean up memory
   gc(); rm(prec_tidy)
