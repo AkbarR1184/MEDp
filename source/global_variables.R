@@ -1,9 +1,10 @@
 #Variables
 
 ## Paths
-PATH_DATA <- 'data/raw/'
-PATH_SAVE <- 'data/processed/'
-PATH_GEO <- 'data/geo_data/'
+PATH_NC_DATA <- 'data/nc/'
+PATH_PROCESSED_DATA <- 'data/processed/'
+PATH_GEO_DATA <- 'data/geo_data/'
+PATH_TIDY_DATA <- 'data/tidy/'
 
 ## Datasets
 PREC_GLOBAL_DATASETS <- c("e-obs", "em-earth","era5-land", "gpcc",  
