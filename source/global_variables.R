@@ -6,8 +6,8 @@ PATH_SAVE <- 'data/processed/'
 PATH_GEO <- 'data/geo_data/'
 
 ## Datasets
-PREC_GLOBAL_DATASETS <- c("e-obs", "em-earth","era5-land", "gpcc", "merra2-land", 
-                          "gpcp", "gpm-imerg", "gsmap" ,"mswep",  
+PREC_GLOBAL_DATASETS <- c("e-obs", "em-earth","era5-land", "gpcc",  
+                          "gpcp", "gpm-imerg", "gsmap","merra2-land","mswep",  
                           "mswx")
 
 # Types
