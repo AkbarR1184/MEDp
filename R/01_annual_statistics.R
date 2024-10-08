@@ -28,9 +28,9 @@ prec_data_2001_2019 <- foreach(
   
   # Aggregate results by year: average wet days, intensity, and annual precipitation
   agg_data <- prec_data[, .(
-    avg_wet_days = mean(wet_days, na.rm = TRUE),
-    avg_intensity = mean(intensity, na.rm = TRUE),
-    avg_pr_year = mean(pr_year, na.rm = TRUE)
+    wet_days = mean(wet_days, na.rm = TRUE),
+    intensity = mean(intensity, na.rm = TRUE),
+    pr_year = mean(pr_year, na.rm = TRUE)
   ), by = year]
   
   # Add the dataset name for identification
@@ -46,17 +46,17 @@ stopCluster(cl)
 prec_data_2001_2019[, source := PREC_SOURCE[dataset]]
 
 # Add new columns 'Min', 'Max', and 'Mean' for each dataset
-prec_data_2001_2019[, dataset := PREC_UPDATED_NAMES[dataset]]
+prec_data_2001_2019[, dataset := PREC_FIGURE_IDENTIFIERS[dataset]]
 prec_data_2001_2019[, `:=`(
-  min_intensity = round(min(avg_intensity), 2),
-  max_intensity = round(max(avg_intensity), 2),
-  avg_intensity = round(mean(avg_intensity), 2),
-  min_wet_days = round(min(avg_wet_days), 2),
-  max_wet_days = round(max(avg_wet_days), 2),
-  avg_wet_days = round(mean(avg_wet_days), 2),
-  min_pr = round(min(avg_pr_year), 0),
-  max_pr = round(max(avg_pr_year), 0),
-  avg_pr = round(mean(avg_pr_year), 0)
+  min_intensity = min(intensity),
+  max_intensity = max(intensity),
+  avg_intensity = mean(intensity),
+  min_wet_days = min(wet_days),
+  max_wet_days = max(wet_days),
+  avg_wet_days = mean(wet_days),
+  min_pr = min(pr_year),
+  max_pr = max(pr_year),
+  avg_pr = mean(pr_year)
 ), by = dataset]
 
 

@@ -62,3 +62,36 @@ download_data <- function(path = "", datasets, domain = "raw", time_res = "daily
     try(download.file(file_url, file_destination, mode = "wb"), silent = TRUE)
   }
 }
+
+
+
+# plot_ts function 
+
+plot_ts <- function(data, x, y, dataset_col, palette, y_title = "Precipitation (mm/year)", x_labels = TRUE, legend_title = "Name") {
+  p <- ggplot(data, aes_string(x = x, y = y, color = dataset_col, group = dataset_col)) +
+    geom_line(linetype = "solid", size = 1) +
+    geom_point(shape = 19, size = 3, alpha = 0.7) +  # Add transparency
+    geom_smooth(method = "loess", se = FALSE, aes_string(color = dataset_col), size = 0.5, linetype = "solid") +
+    scale_color_manual(name = legend_title, values = palette) +
+    labs(
+      title = "",
+      x = ifelse(x_labels, "", ""),
+      y = y_title
+    ) +
+    scale_x_continuous(breaks = seq(2001, 2019, by = 1), limits = c(2001, 2019), expand = c(0.005, 0.005)) +
+    theme_minimal() +
+    theme(
+      axis.text.x = if (x_labels) element_text(angle = 45, hjust = 0.9, color = "black", family = "sans-serif", size = 16) else element_blank(),
+      axis.ticks = element_line(),
+      axis.text.y = element_text(color = "black", family = "sans-serif", size = 16),
+      axis.title.y = element_text(color = "black", family = "sans-serif", size = 16, margin = margin(t = 0, r = 20, b = 0, l = 0)),
+      legend.position = "right",
+      panel.border = element_rect(size = 1, colour = "black", fill = NA),
+      legend.key.height = unit(2, "lines"),
+      legend.text = element_text(color = "black", family = "sans-serif", size = 12),
+      legend.title = element_text(color = "black", family = "sans-serif", size = 14),
+      legend.text.align = 0
+    )
+  
+  return(p)
+}

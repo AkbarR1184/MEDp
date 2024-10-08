@@ -65,7 +65,7 @@ N_CORES <- detectCores()
 GAUGE_BASED_PALETTE <- c(
   "E-OBS" = "#88CCEE",
   "EM-EARTH" = "#CC6677",
-  "GPCC v2020" = "#117733"
+  "GPCC" = "#117733"
 )
 
 REANALYSIS_BASED_PALETTE <- c(
