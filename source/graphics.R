@@ -76,3 +76,8 @@ SATELLITE_BASED_PALETTE <- c(
   "GPM-IMERG" = "#AA4499",
   "GSMaP" = "#44AA99"
 )
+
+
+#slope palettes
+
+slope_palettes <- colorRampPalette(brewer.pal(n = 10, name = "BrBG"))(100)

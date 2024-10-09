@@ -8,6 +8,7 @@ library(lubridate)
 # plotting
 library(ggplot2)
 library(ggpubr)
+library(RColorBrewer)
 
 # geospatial
 library(raster)
