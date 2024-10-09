@@ -41,8 +41,14 @@ slope_data_region2 <- slope_data[lon> 30]
 combination <- colnames(slope_data)[4:9]
 
 upset_med <- plot_upset_three(slope_data, combination)
-ggsave(plot = upset_med, "results/figures/prec_tot_wday_intensity_upset_med.pdf", 
-       width = 11.69, height = 8.27, units = "in", dpi = 600) 
+ggsave(
+  plot = upset_med,
+  paste0(PATH_SAVE_FIGURES, "prec_tot_wday_intensity_upset_med.pdf"),
+  width = 11.69,
+  height = 8.27,
+  units = "in",
+  dpi = 600
+) 
 
 # Plot upset for region1 and region2
 upset_region1 <- plot_upset_three(slope_data_region1, combination)
@@ -52,5 +58,11 @@ upset_region2 <- plot_upset_three(slope_data_region2, combination)
 upset_sub_regions<- ggpubr::ggarrange(upset_region1, upset_region2, 
                   ncol = 1, common.legend = TRUE, legend = "right", 
                   labels = c("A", "B"))
-ggsave(plot= upset_sub_regions, "results/figures/prec_tot_wday_intensity_upset_west_east.pdf", 
-       width = 11.69, height = 16, units = "in", dpi = 600)  
+ggsave(
+  plot = upset_sub_regions,
+  paste0(PATH_SAVE_FIGURES, "prec_tot_wday_intensity_upset_west_east.pdf"),
+  width = 11.69,
+  height = 16,
+  units = "in",
+  dpi = 600
+)  
