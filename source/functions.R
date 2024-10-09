@@ -112,3 +112,24 @@ calc_slope <- function(prec_data, variable, indices = c(2, 5)) {
   
   return(slope_results_dt)
 }
+
+# Function to calculate quantile slopes
+
+qq_slopes =  function(region, probs = seq(0.05, 0.95, 0.05)){
+  nquant = length(probs) + 3
+  region_qq = region[, as.list(quantile(precip, probs = probs)), 
+                     list(lon, lat, year)]
+  region_qq_slopes = region_qq[, lapply(.SD, function(x) tryCatch(mkttest((x-mean(x))/(sd(x)))[2], 
+                                                                  error = function(e) NULL)), 
+                               by = c("lon", "lat"), .SDcols = 4:nquant]
+  region_qq_kendal = region_qq[, lapply(.SD,  function(x) tryCatch(mkttest((x-mean(x))/(sd(x)))[5], 
+                                                                   error = function(e) NULL)), 
+                               by = c("lon", "lat"), .SDcols = 4:nquant]
+  region_qq_kendal = melt.data.table(region_qq_kendal, id.vars = c("lon", "lat"))
+  region_qq_slopes = melt.data.table(region_qq_slopes, id.vars = c("lon", "lat"))
+  region_qq_slopes[,kendal := region_qq_kendal$value]
+  colnames(region_qq_slopes)[3:4] = c("quantile", "slope")
+  region_qq_slopes[slope == 0, kendal := 1]
+  return(region_qq_slopes)
+}
+
