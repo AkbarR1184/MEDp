@@ -5,6 +5,8 @@ PATH_NC_DATA <- 'data/nc/'
 PATH_PROCESSED_DATA <- 'data/processed/'
 PATH_GEO_DATA <- 'data/geo_data/'
 PATH_TIDY_DATA <- 'data/tidy/'
+PATH_SAVE_FIGURES <- 'results/figures/'
+
 
 ## Datasets
 PREC_GLOBAL_DATASETS <- c(
