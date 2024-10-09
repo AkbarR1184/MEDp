@@ -61,22 +61,3 @@ PREC_NAME_SHORT <- "tp"
 ## Parallelization
 N_CORES <- detectCores()
 
-# color palettes for each source
-GAUGE_BASED_PALETTE <- c(
-  "E-OBS" = "#88CCEE",
-  "EM-EARTH" = "#CC6677",
-  "GPCC" = "#117733"
-)
-
-REANALYSIS_BASED_PALETTE <- c(
-  "ERA5-Land" = "#DDCC77",
-  "MERRA2-Land" = "#999933",
-  "MSWEP" = "#882255",
-  "MSWX" = "#888888"
-)
-
-SATELLITE_BASED_PALETTE <- c(
-  "GPCP" = "#332288",
-  "GPM-IMERG" = "#AA4499",
-  "GSMaP" = "#44AA99"
-)
