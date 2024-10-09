@@ -95,3 +95,20 @@ plot_ts <- function(data, x, y, dataset_col, palette, y_title = "Precipitation (
   
   return(p)
 }
+
+
+
+# Function to calculate slope
+calc_slope <- function(prec_data, variable, indices = c(2, 5)) {
+  # Perform the t-test on the specified variable
+  slope_results <- prec_data[, as.list(tryCatch(
+    mkttest((get(variable) - mean(get(variable), na.rm = TRUE)) / 
+              (sd(get(variable), na.rm = TRUE)))[indices],
+    error = function(e) NULL
+  )), by = c("lon", "lat", "dataset")]
+  
+  # Convert to data.table
+  slope_results_dt <- as.data.table(slope_results)
+  
+  return(slope_results_dt)
+}
