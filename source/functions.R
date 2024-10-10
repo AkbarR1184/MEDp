@@ -133,3 +133,53 @@ qq_slopes =  function(region, probs = seq(0.05, 0.95, 0.05)){
   return(region_qq_slopes)
 }
 
+# Function to plot quantile slopes
+
+qq_plot <- function(data, median_data, palette) {
+  ggplot(data,
+         aes(
+           x = quantile,
+           y = mean_slope,
+           color = dataset,
+           group = dataset
+         )) +
+    geom_point(shape = 19,
+               size = 1,
+               alpha = 0.7) +
+    geom_smooth(method = "loess",
+                se = FALSE,
+                aes(color = dataset),
+                size = 0.5) +
+    geom_smooth(data = median_data, aes(x = quantile, y = median), 
+                size = 1.5, color = "black", method = "loess") +
+    geom_abline(
+      slope = 0,
+      intercept = 0,
+      linetype = "dashed",
+      color = "black"
+    ) +  # Add a line with slope 0
+    labs(
+      title = "",
+      x = "Quantiles",
+      y = "Slope"
+    ) +
+    scale_x_discrete(
+      breaks = c("5%", "30%", "60%", "90%"),
+      labels = c("5%", "30%", "60%", "90%")
+    ) +
+    scale_color_manual(values = palette) +
+    scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
+    theme_minimal() +
+    theme_bw() +
+    theme(
+      legend.position = "none",
+      legend.title = element_blank(),
+      axis.title = element_text(size = 14, family = "sans", colour = "black"),
+      axis.text = element_text(
+        size = 12,
+        family = "sans",
+        color = "black"
+      )
+    )
+}
+
