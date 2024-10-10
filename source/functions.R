@@ -168,7 +168,7 @@ qq_plot <- function(data, median_data, palette) {
       labels = c("5%", "30%", "60%", "90%")
     ) +
     scale_color_manual(values = palette) +
-    scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
+    scale_y_continuous(breaks = scales::pretty_breaks(n = 7)) +
     theme_minimal() +
     theme_bw() +
     theme(
