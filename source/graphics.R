@@ -94,13 +94,16 @@ rating_scale = scale_fill_manual(values=c(
   "MSWX" = "#888888"))
 
 
-#upset plot function for 3 variable
+#upset plot function
 
-plot_upset_three <- function(slope_data, combination) {
+plot_upset <- function(data, combination, n_intersection = 8, min_degree = 3, max_degree = 100) {
+  
   upset(
-    slope_data,
+    data,
     intersect = combination,
-    min_degree = 3,
+    n_intersection = n_intersection,
+    min_degree = min_degree,
+    max_degree = max_degree,
     sort_sets = "descending",
     name = "",
     matrix = (
@@ -130,8 +133,8 @@ plot_upset_three <- function(slope_data, combination) {
             position = position_fill(vjust = .5)
           )
         + rating_scale
-        + scale_color_manual(values = c('show' = 'black', 'hide' ='transparent'),
-                             guide = 'none')+
+        + scale_color_manual(values = c('show' = 'black', 'hide' = 'transparent'),
+                             guide = 'none') +
           ylab('') +
           xlab('') +
           theme(
@@ -160,6 +163,3 @@ plot_upset_three <- function(slope_data, combination) {
     guides = 'over'
   )
 }
-
-
-

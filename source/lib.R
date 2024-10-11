@@ -6,10 +6,11 @@ library(dplyr)
 library(lubridate)
 
 # plotting
-library(ggplot2)
+library(ggplot2) # Ensure this is version 3.5.1
 library(ggpubr)
 library(RColorBrewer)
-library(ComplexUpset)
+library(ComplexUpset) # Install ComplexUpset from source
+#install.packages("ComplexUpset", type="source")
 # geospatial
 library(raster)
 library(ncdf4)
