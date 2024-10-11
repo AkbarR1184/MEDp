@@ -9,7 +9,7 @@ source("./source/functions.R")
 source("./source/global_variables.R")
 
 # Initialize a parallel backend using all available cores but one
-cl <- makeCluster(detectCores() - 33) 
+cl <- makeCluster(detectCores() - 1) 
 registerDoParallel(cl)
 
 # Process precipitation data for multiple global datasets in parallel
