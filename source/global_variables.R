@@ -22,16 +22,16 @@ PREC_GLOBAL_DATASETS <- c(
   "mswx"
 )
 PREC_FIGURE_IDENTIFIERS <- c(
-  "e-obs" = "E-OBS",
+  "e-obs" = "E-OBS V29e",
   "em-earth" = "EM-EARTH",
   "era5-land" = "ERA5-Land",
-  "gpcc" = "GPCC",
-  "gpcp" = "GPCP",
-  "gpm-imerg" = "GPM-IMERG",
-  "gsmap" = "GSMaP",
+  "gpcc" = "GPCC v2020",
+  "gpcp" = "GPCP v3.2",
+  "gpm-imerg" = "GPM-IMERG v6",
+  "gsmap" = "GSMaP v8",
   "merra2-land" = "MERRA2-Land",
-  "mswep" = "MSWEP",
-  "mswx" = "MSWX"
+  "mswep" = "MSWEP v2.8",
+  "mswx" = "MSWX-Past"
 )
 # Types
 PREC_SOURCE <- list(
