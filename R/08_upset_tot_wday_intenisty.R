@@ -51,8 +51,8 @@ ggsave(
 ) 
 
 # Plot upset for region1 and region2
-upset_region1 <- plot_upset_three(slope_data_region1, combination)
-upset_region2 <- plot_upset_three(slope_data_region2, combination)
+upset_region1 <- plot_upset(slope_data_region1, combination)
+upset_region2 <- plot_upset(slope_data_region2, combination)
 
 # Arrange and save the region1 and region2 plots
 upset_sub_regions<- ggpubr::ggarrange(upset_region1, upset_region2, 

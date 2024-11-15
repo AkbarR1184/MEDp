@@ -99,7 +99,7 @@ p04 <- ggarrange(
 
 ggsave(
   plot = p04,
-  filename = paste0(PATH_SAVE_FIGURES, "qq_slopes.pdf"),
+  filename = paste0(PATH_SAVE_FIGURES, "qq_slopes_sig.pdf"),
   width = 8.02, 
   height = 6.01, 
   units = "in",

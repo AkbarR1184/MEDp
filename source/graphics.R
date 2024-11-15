@@ -86,7 +86,7 @@ slope_palettes <- colorRampPalette(brewer.pal(n = 10, name = "BrBG"))(100)
 rating_scale = scale_fill_manual(values=c(
   "E-OBS v29e" = "#88CCEE",
   "EM-EARTH" = "#CC6677",
-  "GPCC v2020" = "#117733","GPCP" = "#332288",
+  "GPCC v2020" = "#117733","GPCP v3.2" = "#332288",
   "GPM-IMERG v6" = "#AA4499",
   "GSMaP v8" = "#44AA99","ERA5-Land" = "#DDCC77",
   "MERRA2-Land" = "#999933",
@@ -164,3 +164,56 @@ plot_upset <- function(data, combination, n_intersection = 8, min_degree = 3, ma
     guides = 'over'
   )
 }
+
+# Function to plot quantile slopes
+
+qq_plot <- function(data, median_data, palette) {
+  ggplot(data,
+         aes(
+           x = quantile,
+           y = mean_slope,
+           color = dataset,
+           group = dataset
+         )) +
+    geom_point(shape = 19,
+               size = 2,
+               alpha = 0.7) +
+    geom_smooth(method = "loess",
+                se = FALSE,
+                aes(color = dataset),
+                size = 1) +
+    geom_smooth(data = median_data, aes(x = quantile, y = median), 
+                size = 2, color = "black", method = "loess") +
+    geom_abline(
+      slope = 0,
+      intercept = 0,
+      linetype = "dashed",
+      color = "black"
+    ) +  # Add a line with slope 0
+    labs(
+      title = "",
+      x = "Quantiles",
+      y = "Slope"
+    ) +
+    scale_x_discrete(
+      breaks = c("5%", "30%", "60%", "90%"),
+      labels = c("5%", "30%", "60%", "90%")
+    ) +
+    scale_color_manual(values = palette) +
+    scale_y_continuous(breaks = scales::pretty_breaks(n = 7)) +
+    theme_minimal() +
+    theme_bw() +
+    theme(
+      legend.position = "none",
+      panel.grid = element_blank(),
+      legend.title = element_blank(),
+      axis.title = element_text(size = 14, family = "sans", colour = "black"),
+      axis.text = element_text(
+        size = 12,
+        family = "sans",
+        color = "black"
+      )
+    )
+}
+
+
