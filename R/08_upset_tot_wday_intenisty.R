@@ -40,7 +40,7 @@ slope_data_region2 <- slope_data[lon> 30]
 #define sets 
 combination <- colnames(slope_data)[4:9]
 
-upset_med <- plot_upset_three(slope_data, combination)
+upset_med <- plot_upset(slope_data, combination)
 ggsave(
   plot = upset_med,
   paste0(PATH_SAVE_FIGURES, "prec_tot_wday_intensity_upset_med.pdf"),

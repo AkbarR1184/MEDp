@@ -155,9 +155,10 @@ plot_upset <- function(data, combination, n_intersection = 8, min_degree = 3, ma
           width = 0.5
         ),
         position = 'right'
-      ) + theme(
+      ) +ylab('Gridcells')+
+        theme(
         axis.text.x = element_text(angle = 90),
-        axis.title = element_blank()
+        axis.title = element_text()
       )
     ),
     guides = 'over'
