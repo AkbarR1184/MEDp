@@ -59,22 +59,22 @@ guide_gengrob.my_triangle_colourbar <- function(...) {
 
 # color palettes for each source
 GAUGE_BASED_PALETTE <- c(
-  "E-OBS" = "#88CCEE",
+  "E-OBS v29e" = "#88CCEE",
   "EM-EARTH" = "#CC6677",
-  "GPCC" = "#117733"
+  "GPCC v2020" = "#117733"
 )
 
 REANALYSIS_BASED_PALETTE <- c(
   "ERA5-Land" = "#DDCC77",
   "MERRA2-Land" = "#999933",
-  "MSWEP" = "#882255",
-  "MSWX" = "#888888"
+  "MSWEP 2.8" = "#882255",
+  "MSWX-Past" = "#888888"
 )
 
 SATELLITE_BASED_PALETTE <- c(
-  "GPCP" = "#332288",
-  "GPM-IMERG" = "#AA4499",
-  "GSMaP" = "#44AA99"
+  "GPCP v3.2" = "#332288",
+  "GPM-IMERG v6" = "#AA4499",
+  "GSMaP v8" = "#44AA99"
 )
 
 
@@ -84,14 +84,14 @@ slope_palettes <- colorRampPalette(brewer.pal(n = 10, name = "BrBG"))(100)
 
 #palette for upsets 
 rating_scale = scale_fill_manual(values=c(
-  "E-OBS" = "#88CCEE",
+  "E-OBS v29e" = "#88CCEE",
   "EM-EARTH" = "#CC6677",
-  "GPCC" = "#117733","GPCP" = "#332288",
-  "GPM-IMERG" = "#AA4499",
-  "GSMaP" = "#44AA99","ERA5-Land" = "#DDCC77",
+  "GPCC v2020" = "#117733","GPCP" = "#332288",
+  "GPM-IMERG v6" = "#AA4499",
+  "GSMaP v8" = "#44AA99","ERA5-Land" = "#DDCC77",
   "MERRA2-Land" = "#999933",
-  "MSWEP" = "#882255",
-  "MSWX" = "#888888"))
+  "MSWEP v2.8" = "#882255",
+  "MSWX-Past" = "#888888"))
 
 
 #upset plot function

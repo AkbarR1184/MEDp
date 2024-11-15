@@ -22,7 +22,7 @@ PREC_GLOBAL_DATASETS <- c(
   "mswx"
 )
 PREC_FIGURE_IDENTIFIERS <- c(
-  "e-obs" = "E-OBS V29e",
+  "e-obs" = "E-OBS v29e",
   "em-earth" = "EM-EARTH",
   "era5-land" = "ERA5-Land",
   "gpcc" = "GPCC v2020",
